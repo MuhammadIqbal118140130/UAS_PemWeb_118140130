@@ -9,13 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Buku Tamu</h1>
+        <h1>Buku Tamu Pernikahan</h1>
         <form id="guestForm" action="server/process.php" method="POST">
             <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" placeholder="Masukkan nama" required><br><br>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama"><br><br>
 
             <label for="message">Pesan:</label>
-            <textarea id="message" name="message" placeholder="Tulis pesan Anda" required></textarea><br><br>
+            <textarea id="message" name="message" placeholder="Tulis pesan Anda"></textarea><br><br>
 
             <button type="submit">Kirim</button>
         </form>

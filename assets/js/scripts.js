@@ -17,16 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event 1: Validasi form hanya saat submit
     form.addEventListener("submit", function (e) {
-        // Validasi nama
-        if (!validateInput(nameInput, "Nama tidak boleh kosong!")) {
+        //Pengecekan form kosong
+        if (!nameInput.value.trim() && !messageInput.value.trim()) {
+            alert("Nama dan Pesan tidak boleh kosong!");
             e.preventDefault(); // Batalkan submit
-            return;
-        }
-
-        // Validasi pesan
-        if (!validateInput(messageInput, "Pesan tidak boleh kosong!")) {
+        } else if (!nameInput.value.trim()) {
+            alert("Nama tidak boleh kosong!");
             e.preventDefault(); // Batalkan submit
-            return;
+        } else if (!messageInput.value.trim()) {
+            alert("Pesan tidak boleh kosong!");
+            e.preventDefault(); // Batalkan submit
         }
 
         // Konfirmasi pengiriman
