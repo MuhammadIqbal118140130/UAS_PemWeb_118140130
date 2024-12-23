@@ -4,6 +4,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const messageInput = document.getElementById("message");
     const form = document.getElementById("guestForm");
     const button = form.querySelector("button");
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const id = this.getAttribute("data-id"); // Ambil ID dari tombol
+            const confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+            if (confirmDelete) {
+                // Kirim permintaan ke server
+                fetch(`../server/delete.php`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: `id=${id}`,
+                })
+                    .then((response) => response.text())
+                    .then((data) => {
+                        if (data.trim() === "success") {
+                            alert("Data berhasil dihapus!");
+                            location.reload(); // Refresh halaman setelah hapus
+                        } else {
+                            alert("Gagal menghapus data.");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("Terjadi kesalahan. Silakan coba lagi.");
+                    });
+            }
+        });
+    });
 
     // Helper function: Validasi input
     function validateInput(input, errorMessage) {

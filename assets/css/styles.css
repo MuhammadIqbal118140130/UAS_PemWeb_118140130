@@ -82,6 +82,21 @@ button {
     transition: background-color 0.3s ease;
 }
 
+.delete-button {
+    background-color: #ff4d4d; /* Warna merah */
+    color: white; /* Teks putih */
+    border: none; /* Tanpa border */
+    padding: 5px 10px; /* Ukuran padding */
+    font-size: 14px; /* Ukuran teks */
+    border-radius: 3px; /* Sudut melengkung */
+    cursor: pointer; /* Ubah kursor menjadi pointer */
+    transition: background-color 0.3s ease; /* Efek transisi hover */
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Warna merah gelap */
+}
+
 /* Tabel */
 table {
     width: 100%;

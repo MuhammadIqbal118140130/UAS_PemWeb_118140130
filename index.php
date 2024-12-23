@@ -27,27 +27,26 @@
                     <th>Nama</th>
                     <th>Pesan</th>
                     <th>Waktu</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                // Hubungkan ke database
                 include 'server/config.php';
-
-                // Query untuk mengambil data
                 $result = $conn->query("SELECT * FROM guestbook ORDER BY created_at DESC");
-
-                // Tampilkan data jika ada
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td>" . htmlspecialchars($row['name']) . "</td>
-                                <td>" . htmlspecialchars($row['message']) . "</td>
-                                <td>" . htmlspecialchars($row['created_at']) . "</td>
-                              </tr>";
+                                <td>{$row['name']}</td>
+                                <td>{$row['message']}</td>
+                                <td>{$row['created_at']}</td>
+                                <td>
+                                    <button class='delete-button' data-id='{$row['id']}'>Hapus</button>
+                                </td>
+                            </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3'>Belum ada data</td></tr>";
+                    echo "<tr><td colspan='4'>Belum ada data</td></tr>";
                 }
                 ?>
             </tbody>
