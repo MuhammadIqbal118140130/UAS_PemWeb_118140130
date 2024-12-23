@@ -1,0 +1,10 @@
+CREATE DATABASE buku_tamu;
+
+USE buku_tamu;
+
+CREATE TABLE guestbook (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
